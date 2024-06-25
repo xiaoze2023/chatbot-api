@@ -53,5 +53,10 @@
             <artifactId>json-lib</artifactId>
             <classifier>jdk15</classifier><!-- jdk版本 -->
         </dependency>
+        <dependency>
+            <groupId>cn.bigmodel.openapi</groupId>
+            <artifactId>oapi-java-sdk</artifactId>
+            <version>release-V4-2.0.2</version>
+        </dependency>
     </dependencies>
 </project>

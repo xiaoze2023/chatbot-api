@@ -1,6 +1,7 @@
 package chatbot.api.test;
 
 
+import chatbot.api.domain.AI.IOpenAI;
 import chatbot.api.domain.zsxq.IZsxqApi;
 import chatbot.api.domain.zsxq.model.aggregates.UnAnsweredQuestionsAggregates;
 import chatbot.api.domain.zsxq.model.vo.Topics;
@@ -36,6 +37,9 @@ public class SpringBootRunTest {
     //引用zsxq接口类,因为它是另一个包的,记得在pom.xml中引入
     private IZsxqApi zsxqApi;
 
+    @Resource
+    private IOpenAI openAI;
+
     @Test
     public void test_zsxqApi() throws IOException {
         //调用zsxq的获取问题类
@@ -51,9 +55,15 @@ public class SpringBootRunTest {
             //回答问题
             zsxqApi.answer(groupId, cookie, topicId,text,false);
         }
-
-
-
-
     }
+
+
+    //chatGPT接口测试结果
+    @Test
+    public void test_openAi() throws IOException {
+        String response = openAI.doChatGPT("帮我写一个java冒泡排序");
+        logger.info("测试结果：{}",response);
+    }
+
+
 }
