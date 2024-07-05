@@ -6,7 +6,8 @@ import chatbot.api.domain.zsxq.model.req.AnswerReq;
 import chatbot.api.domain.zsxq.model.req.ReqData;
 import chatbot.api.domain.zsxq.model.res.AnswerRes;
 import com.alibaba.fastjson.JSON;
-import net.sf.json.JSONObject;
+import com.alibaba.fastjson.JSONObject;
+//import net.sf.json.JSONObject;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -71,7 +72,7 @@ public class ZsxqApi implements IZsxqApi {
 //                "}";
         AnswerReq answerReq = new AnswerReq(new ReqData(text,silenced));
 
-        String paramJson = JSONObject.fromObject(answerReq).toString();
+        String paramJson = JSONObject.toJSONString(answerReq);
 
         StringEntity stringEntity = new StringEntity(paramJson, ContentType.create("text/json","UTF-8"));
         //它创建了一个StringEntity对象，该对象包含了将要发送到服务器的JSON数据，并指定了内容类型和字符编码
