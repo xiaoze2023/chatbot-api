@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.slf4j.Logger;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,14 +17,17 @@ public class ApiApplication {
     public static void main(String[] args) {
         SpringApplication.run(ApiApplication.class,args);
     }
-    @RequestMapping("/verify")
+    @GetMapping("/verify")
     public ResponseEntity<String> verify(String token) {
-
         logger.info("验证 token：{}", token);
-        return ResponseEntity.status(HttpStatus.OK).body("verify success!");
+        if ("success".equals(token)){
+            return ResponseEntity.status(HttpStatus.OK).build();
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
     }
 
-    @RequestMapping("/success")
+    @GetMapping("/success")
     public String success(){
         return "test success by xfg";
     }
