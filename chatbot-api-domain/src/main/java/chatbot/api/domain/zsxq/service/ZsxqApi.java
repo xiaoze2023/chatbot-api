@@ -61,7 +61,7 @@ public class ZsxqApi implements IZsxqApi {
         HttpPost post = new HttpPost("https://api.zsxq.com/v2/topics/"+topicId+"/answer");
         post.addHeader("cookie",cookie);
         post.addHeader("Content-Type","application/json, text/plain, */*");
-        post.addHeader("user-agent","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0");
+//        post.addHeader("user-agent","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0");
 
 //       测试 String patamJson = "{\n" +
 //                "  \"req_data\": {\n" +
