@@ -12,7 +12,6 @@
         <module>chatbot-api-domain</module>
         <module>chatbot-api-application</module>
         <module>chatbot-api-infrastructure</module>
-        <module>chatbot-api-domain</module>
         <module>chatbot-api-interfaces</module>
     </modules>
 
@@ -25,7 +24,15 @@
     </parent>
 
     <dependencyManagement>
+
         <dependencies>
+            <!---->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.34</version>
+            </dependency>
+            <!--            -->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
@@ -71,7 +78,7 @@
             <dependency>
                 <groupId>org.testng</groupId>
                 <artifactId>testng</artifactId>
-                <version>RELEASE</version>
+                <version>7.4.0</version> <!-- 使用一个具体的版本号，而不是 RELEASE -->
                 <scope>test</scope>
             </dependency>
             <!-- https://mvnrepository.com/artifact/net.sf.json-lib/json-lib -->
@@ -133,10 +140,10 @@
             </plugin>
         </plugins>
     </build>
-<!--    <properties>-->
-<!--        <maven.compiler.source>8</maven.compiler.source>-->
-<!--        <maven.compiler.target>8</maven.compiler.target>-->
-<!--        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
-<!--    </properties>-->
+        <properties>
+            <maven.compiler.source>19</maven.compiler.source>
+            <maven.compiler.target>19</maven.compiler.target>
+            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        </properties>
 
 </project>
